@@ -20,11 +20,14 @@ public class SpringSecurityAuditorAware implements AuditorAware<String> {
 
   @Override
   public Optional<String> getCurrentAuditor() {
-
+/*
     KeycloakAuthenticationToken token = (KeycloakAuthenticationToken) request.getUserPrincipal();
     KeycloakPrincipal principal=(KeycloakPrincipal)token.getPrincipal();
     KeycloakSecurityContext session = principal.getKeycloakSecurityContext();
     AccessToken accessToken = session.getToken();
     return Optional.ofNullable(accessToken.getPreferredUsername()).filter(s -> !s.isEmpty());
+
+ */
+    return  Optional.of("Fanta");
   }
 }

@@ -5,11 +5,13 @@ import ci.gs2e.dpi.inventor.BonCommande.domain.dto.BonCommandeDto;
 import ci.gs2e.dpi.inventor.BonCommande.mapper.BonCommandeMapper;
 import ci.gs2e.dpi.inventor.BonCommande.repository.BonCommandeRepository;
 import ci.gs2e.dpi.inventor.emplacement.mapper.EmplacementMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class BonCommandeServiceImpl implements BonCommandeService{
     BonCommandeRepository bonCommandeRepository;
     @Override

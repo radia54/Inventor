@@ -4,11 +4,13 @@ import ci.gs2e.dpi.inventor.materiel.domain.Materiel;
 import ci.gs2e.dpi.inventor.materiel.domain.dto.MaterielDto;
 import ci.gs2e.dpi.inventor.materiel.mapper.MaterielMapper;
 import ci.gs2e.dpi.inventor.materiel.repository.MaterielRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class MaterielServiceImpl implements MaterielService{
 
 

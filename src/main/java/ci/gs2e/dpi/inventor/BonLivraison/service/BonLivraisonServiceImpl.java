@@ -5,11 +5,13 @@ import ci.gs2e.dpi.inventor.BonLivraison.domain.BonLivraison;
 import ci.gs2e.dpi.inventor.BonLivraison.domain.dto.BonLivraisonDto;
 import ci.gs2e.dpi.inventor.BonLivraison.mapper.BonLivraisonMapper;
 import ci.gs2e.dpi.inventor.BonLivraison.repository.BonLivraisonRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class BonLivraisonServiceImpl implements BonLivraisonService{
     BonLivraisonRepository bonLivraisonRepository;
     @Override

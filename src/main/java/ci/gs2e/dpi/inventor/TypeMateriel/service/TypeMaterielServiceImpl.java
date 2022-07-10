@@ -5,11 +5,13 @@ import ci.gs2e.dpi.inventor.TypeMateriel.domain.TypeMateriel;
 import ci.gs2e.dpi.inventor.TypeMateriel.domain.dto.TypeMaterielDto;
 import ci.gs2e.dpi.inventor.TypeMateriel.mapper.TypeMaterielMapper;
 import ci.gs2e.dpi.inventor.TypeMateriel.repository.TypeMaterielRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class TypeMaterielServiceImpl implements TypeMaterielService{
     TypeMaterielRepository typeMaterielRepository;
 

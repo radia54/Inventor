@@ -5,11 +5,13 @@ import ci.gs2e.dpi.inventor.EmployeSite.domain.dto.EmployeSiteDto;
 import ci.gs2e.dpi.inventor.EmployeSite.mapper.EmployeSiteMapper;
 import ci.gs2e.dpi.inventor.EmployeSite.repository.EmployeSiteRepository;
 import ci.gs2e.dpi.inventor.employe.mapper.EmployeMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class EmployeSiteServiceImpl implements EmployeSiteService{
     EmployeSiteRepository employeSiteRepository;
 

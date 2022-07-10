@@ -5,11 +5,13 @@ import ci.gs2e.dpi.inventor.emplacement.domain.dto.EmplacementDto;
 import ci.gs2e.dpi.inventor.emplacement.mapper.EmplacementMapper;
 import ci.gs2e.dpi.inventor.emplacement.repository.EmplacementRepository;
 import ci.gs2e.dpi.inventor.employe.mapper.EmployeMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class EmplacementServiceImpl implements EmplacementService {
     EmplacementRepository emplacementRepository;
     @Override

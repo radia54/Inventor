@@ -5,11 +5,13 @@ import ci.gs2e.dpi.inventor.EtatMateriel.domain.dto.EtatMaterielDto;
 import ci.gs2e.dpi.inventor.EtatMateriel.mapper.EtatMaterielMapper;
 import ci.gs2e.dpi.inventor.EtatMateriel.repository.EtatMaterielRepository;
 import ci.gs2e.dpi.inventor.Fournisseur.mapper.FournisseurMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class EtatMaterielServiceImpl implements EtatMaterielService{
     EtatMaterielRepository etatMaterielRepository;
     @Override

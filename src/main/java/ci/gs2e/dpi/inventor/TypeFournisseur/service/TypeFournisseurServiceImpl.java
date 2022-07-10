@@ -5,11 +5,13 @@ import ci.gs2e.dpi.inventor.TypeFournisseur.domain.dto.TypeFournisseurDto;
 import ci.gs2e.dpi.inventor.TypeFournisseur.mapper.TypeFournisseurMapper;
 import ci.gs2e.dpi.inventor.TypeFournisseur.repository.TypeFournisseurRepository;
 import ci.gs2e.dpi.inventor.magasin.mapper.MagasinMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class TypeFournisseurServiceImpl implements TypeFournisseurService{
 
     TypeFournisseurRepository typeFournisseurRepository;
