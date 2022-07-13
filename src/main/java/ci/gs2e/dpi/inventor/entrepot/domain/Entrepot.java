@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "entrepots")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "entrepot")
 public class Entrepot extends AuditModel {
 
     @Id
@@ -21,7 +21,7 @@ public class Entrepot extends AuditModel {
     @Column(name = "code", length = 10)
     private String code;
 
-    @Column(name = "libelle", length = 100)
+    @Column(name = "libelle", length = 50)
     private String libelle;
 
 }

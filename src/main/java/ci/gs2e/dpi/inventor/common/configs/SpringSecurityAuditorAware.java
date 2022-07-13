@@ -28,6 +28,7 @@ public class SpringSecurityAuditorAware implements AuditorAware<String> {
     return Optional.ofNullable(accessToken.getPreferredUsername()).filter(s -> !s.isEmpty());
 
  */
-    return  Optional.of("Fanta");
+    return Optional.of("fanta");
+
   }
 }

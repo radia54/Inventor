@@ -1,9 +1,10 @@
 package ci.gs2e.dpi.inventor.entrepot.controller;
 
+import ci.gs2e.dpi.inventor.emplacement.domain.dto.EmplacementDto;
 import ci.gs2e.dpi.inventor.entrepot.domain.Entrepot;
 import ci.gs2e.dpi.inventor.entrepot.domain.dto.EntrepotDto;
 import ci.gs2e.dpi.inventor.entrepot.service.EntrepotService;
-import com.google.inject.Inject;
+//import com.google.inject.Inject;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,4 +42,16 @@ public class EntrepotController {
     public ResponseEntity<Entrepot> getByName(@PathVariable("entrepotName") String name) {
         return new ResponseEntity<>(entrepotService.getByName(name), HttpStatus.FOUND);
     }
+@DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        entrepotService.delete(id);
+        return "delete";
+    }
+
+    @PutMapping("/entrepot/{id}")
+    public ResponseEntity<EntrepotDto> update(@PathVariable("id") long id, @RequestBody EntrepotDto entrepotDto){
+        return new ResponseEntity<>(entrepotService.update(entrepotDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
+
+
 }

@@ -12,6 +12,6 @@ public interface EmplacementService {
     EmplacementDto create(EmplacementDto emplacementDto);
     Emplacement getById(long id);
     Emplacement getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    EmplacementDto update(EmplacementDto emplacementDto, long id);
 }

@@ -20,7 +20,7 @@ public class MagasinController {
     MagasinService magasinService;
 
     @GetMapping
-    @RolesAllowed("backend-user")
+   // @RolesAllowed("backend-user")
     public ResponseEntity<List<MagasinDto>> getAll() {
         return new ResponseEntity<>(magasinService.getAll(), HttpStatus.FOUND);
     }

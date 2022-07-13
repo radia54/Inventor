@@ -3,11 +3,12 @@ package ci.gs2e.dpi.inventor.EmployeSite.mapper;
 import ci.gs2e.dpi.inventor.EmployeSite.domain.EmployeSite;
 import ci.gs2e.dpi.inventor.EmployeSite.domain.dto.EmployeSiteDto;
 
+import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
-
+@Mapper(componentModel = "spring")
 public interface EmployeSiteMapper {
     EmployeSiteMapper INSTANCE = Mappers.getMapper( EmployeSiteMapper.class);
 

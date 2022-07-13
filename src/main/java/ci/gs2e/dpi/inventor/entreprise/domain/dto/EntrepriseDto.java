@@ -1,14 +1,15 @@
 package ci.gs2e.dpi.inventor.entreprise.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
-@Data
+import java.io.Serializable;
 
-public class EntrepriseDto {
+@Data
+public class EntrepriseDto implements Serializable {
+
     private long id;
-    @JsonProperty("raison_sociale")
-    private String nomEntreprise;
-    private String adresse;
+    private String raisonsociale;
+    private String addresse;
 
 }

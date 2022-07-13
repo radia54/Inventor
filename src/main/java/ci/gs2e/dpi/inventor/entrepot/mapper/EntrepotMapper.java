@@ -13,15 +13,15 @@ public interface EntrepotMapper {
 
     EntrepotMapper INSTANCE = Mappers.getMapper( EntrepotMapper.class);
 
-    @Mapping(source = "libelle", target = "nomEntrepot")
+    //@Mapping(source = "libelle", target = "nomEntrepot")
     EntrepotDto fromEntrepot(Entrepot entrepot);
 
-    @Mapping(source = "nomEntrepot", target = "libelle")
+    //@Mapping(source = "nomEntrepot", target = "libelle")
     Entrepot fromEntrepotDto(EntrepotDto entrepotDto);
 
-    @Mapping(source = "libelle", target = "nomEntrepot")
+    //@Mapping(source = "libelle", target = "nomEntrepot")
     List<EntrepotDto> fromEntrepotList(List<Entrepot> entrepotList);
-    @Mapping(source = "nomEntrepot", target = "libelle")
+    //@Mapping(source = "nomEntrepot", target = "libelle")
     List<Entrepot> fromEntrepotDtoList(List<EntrepotDto> entrepotDtoList);
 
 }

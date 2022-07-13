@@ -39,5 +39,14 @@ public class EmplacementController {
     public ResponseEntity<Emplacement> getByName(@PathVariable("emplacementName") String name) {
         return new ResponseEntity<>(emplacementService.getByName(name), HttpStatus.FOUND);
     }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") long id){
+        emplacementService.delete(id);
+    }
+
+    @PutMapping("/emplacement/{id}")
+    public ResponseEntity<EmplacementDto> update(@PathVariable("id") long id, @RequestBody EmplacementDto emplacement){
+        return new ResponseEntity<>(emplacementService.update(emplacement, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 
 }

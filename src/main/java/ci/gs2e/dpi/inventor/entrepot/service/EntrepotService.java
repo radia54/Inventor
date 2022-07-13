@@ -11,6 +11,6 @@ public interface EntrepotService {
     EntrepotDto create(EntrepotDto entrepot);
     Entrepot getById(long id);
     Entrepot getByName(String name);
-    //update
-    //delete
+    EntrepotDto update( EntrepotDto entrepotDto, long id);
+    void delete(long id);
 }

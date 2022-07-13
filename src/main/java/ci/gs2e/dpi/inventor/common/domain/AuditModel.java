@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -28,8 +29,9 @@ public abstract class AuditModel implements Serializable {
     private Date dateCreation;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "date_modification", nullable = false)
-    @CreatedDate
+    @Column(name = "date_modification", nullable = true)
+    //CreatedDate
+    @LastModifiedDate
     private Date dateModification;
 
     @CreatedBy

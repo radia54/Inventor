@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -32,5 +33,37 @@ public class EmplacementServiceImpl implements EmplacementService {
     @Override
     public Emplacement getByName(String name) {
         return emplacementRepository.findByLibelle(name).get();
+    }
+
+    @Override
+    public void delete(long id) {
+        emplacementRepository.deleteById(id);
+    }
+
+
+    @Override
+    public EmplacementDto update(EmplacementDto emplacementDto, long id) {
+        Emplacement empl= emplacementRepository.findById(id).get();
+        if(Objects.nonNull(emplacementDto.getCode()) && ! "".equalsIgnoreCase(emplacementDto.getCode())){
+            empl.setCode(emplacementDto.getCode());
+        }
+        if (Objects.nonNull(emplacementDto.getLibelle()) && !"".equalsIgnoreCase(emplacementDto.getLibelle())){
+            empl.setCode(emplacementDto.getCode());
+
+        }
+        if (Objects.nonNull(emplacementDto.getLibelle()) && !"".equalsIgnoreCase(emplacementDto.getLibelle()))
+         {
+            empl.setLibelle(emplacementDto.getLibelle());
+        }
+/*
+        if ( Objects.nonNull(emplacementDto.getMagasin()) && !"".equalsIgnoreCase(emplacementDto.getMagasin())){
+            empl.setMagasin(emplacementDto.getMagasin());
+
+
+        }
+
+ */
+
+        return EmplacementMapper.INSTANCE.fromEmplacement(emplacementRepository.save(EmplacementMapper.INSTANCE.fromEmplacementDto(emplacementDto)));
     }
 }
