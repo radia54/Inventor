@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -29,6 +30,25 @@ public class EntrepriseServiceImpl implements EntrepriseService{
     @Override
     public Entreprise getById(long id) {
         return entrepriseRepository.findById(id).get();
+    }
+
+    @Override
+    public EntrepriseDto update(EntrepriseDto entrepriseDto, long id) {
+        EntrepriseDto entrepriseDto1= EntrepriseMapper.INSTANCE.fromEntreprise(entrepriseRepository.findById(id).get());
+        if (Objects.nonNull(entrepriseDto.getAddresse())){
+            entrepriseDto1.setAddresse(entrepriseDto.getAddresse());
+        }
+        if (Objects.nonNull(entrepriseDto.getRaisonsociale())){
+            entrepriseDto1.setRaisonsociale(entrepriseDto.getRaisonsociale());
+        }
+
+        return EntrepriseMapper.INSTANCE.fromEntreprise(entrepriseRepository.save(EntrepriseMapper.INSTANCE.fromEntrepriseDto(entrepriseDto1)));
+    }
+
+    @Override
+    public void delete(long id) {
+        entrepriseRepository.deleteById(id);
+
     }
 
     /*

@@ -40,4 +40,15 @@ public class EtatMaterielController {
     public ResponseEntity<EtatMateriel> getByName(@PathVariable("etatMaterielName") String name) {
         return new ResponseEntity<>(etatMaterielService.getByName(name), HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        etatMaterielService.delete(id);
+        return "deleted";
+    }
+
+    @PutMapping("/etatmateriel/{id}")
+    public ResponseEntity<EtatMaterielDto> update(@PathVariable("id") long id, @RequestBody EtatMaterielDto etatMaterielDto){
+        return new ResponseEntity<>(etatMaterielService.update(etatMaterielDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 }

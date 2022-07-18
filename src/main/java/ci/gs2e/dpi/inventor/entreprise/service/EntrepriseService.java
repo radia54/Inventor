@@ -12,6 +12,6 @@ public interface EntrepriseService {
     EntrepriseDto create(EntrepriseDto entreprise);
     Entreprise getById(long id);
    // Entreprise getByName(String name);
-    //update
-    //delete
+    EntrepriseDto update(EntrepriseDto entrepriseDto, long id);
+    void delete(long id);
 }

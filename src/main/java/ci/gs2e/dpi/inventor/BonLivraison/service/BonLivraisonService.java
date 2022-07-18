@@ -12,6 +12,6 @@ public interface BonLivraisonService {
     BonLivraisonDto create(BonLivraisonDto bonLivraisonDto);
     BonLivraison getById(long id);
     //BonCommande getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    BonLivraisonDto update(BonLivraisonDto bonLivraisonDto, long id);
 }

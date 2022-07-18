@@ -11,6 +11,6 @@ public interface EmployeSiteService {
     EmployeSiteDto create(EmployeSiteDto employeSite);
     EmployeSite getById(long id);
    // EmployeSite getByName(String name);
-    //update
-    //delete
+    EmployeSiteDto update(EmployeSiteDto employeSiteDto, long id);
+    void delete(long id);
 }

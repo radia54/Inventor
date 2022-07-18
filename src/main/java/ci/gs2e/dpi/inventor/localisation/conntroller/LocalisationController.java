@@ -35,6 +35,17 @@ public class LocalisationController {
     public ResponseEntity<Localisation> getById(@PathVariable("entrepotId") long id) {
         return new ResponseEntity<>(localisationService.getById(id), HttpStatus.FOUND);
     }
+
+    @PutMapping("/localisation/{id}")
+    public ResponseEntity<LocalisationDto> update(@PathVariable("id") long id, @RequestBody LocalisationDto localisationDto){
+        return  new ResponseEntity<>(localisationService.update(localisationDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        localisationService.delete(id);
+        return "deleted";
+    }
 /*
     @GetMapping("/{localisationName}")
     public ResponseEntity<Localisation> getByName(@PathVariable("localisationName") String name) {

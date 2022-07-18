@@ -12,6 +12,6 @@ public interface MaterielService {
     MaterielDto create(MaterielDto materielDto);
     Materiel getById(long id);
     Materiel getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    MaterielDto update(MaterielDto materielDto, long id);
 }

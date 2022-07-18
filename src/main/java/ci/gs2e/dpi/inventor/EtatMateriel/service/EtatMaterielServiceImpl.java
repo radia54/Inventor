@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -32,5 +33,19 @@ public class EtatMaterielServiceImpl implements EtatMaterielService{
     @Override
     public EtatMateriel getByName(String name) {
         return etatMaterielRepository.findByLibelle(name).get();
+    }
+
+    @Override
+    public void delete(long id) {
+        etatMaterielRepository.deleteById(id);
+    }
+
+    @Override
+    public EtatMaterielDto update(EtatMaterielDto etat, long id) {
+        EtatMaterielDto etatMaterielDto= EtatMaterielMapper.INSTANCE.fromEtatMateriel(etatMaterielRepository.findById(id).get());
+        if (Objects.nonNull(etat.getLibelle())){
+            etatMaterielDto.setLibelle(etat.getLibelle());
+        }
+        return EtatMaterielMapper.INSTANCE.fromEtatMateriel(etatMaterielRepository.save(EtatMaterielMapper.INSTANCE.fromEtatMaterielDto(etatMaterielDto)));
     }
 }

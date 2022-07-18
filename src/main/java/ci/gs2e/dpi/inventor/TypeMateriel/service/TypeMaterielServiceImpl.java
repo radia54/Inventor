@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -34,4 +35,23 @@ public class TypeMaterielServiceImpl implements TypeMaterielService{
     public TypeMateriel getByName(String name) {
         return typeMaterielRepository.findByLibelle(name).get();
     }
+
+    @Override
+    public void delete(long id) {
+        typeMaterielRepository.deleteById(id);
+    }
+
+
+    @Override
+    public TypeMaterielDto update(TypeMaterielDto typeMaterielDto, long id) {
+        TypeMaterielDto typeMaterielDto1 = TypeMaterielMapper.INSTANCE.fromTypeMateriel(typeMaterielRepository.findById(id).get());
+        if (Objects.nonNull(typeMaterielDto.getCode())){
+            typeMaterielDto1.setCode(typeMaterielDto.getCode());
+        }
+        if (Objects.nonNull(typeMaterielDto.getLibelle())){
+            typeMaterielDto1.setLibelle(typeMaterielDto.getLibelle());
+        }
+        return TypeMaterielMapper.INSTANCE.fromTypeMateriel(typeMaterielRepository.save(TypeMaterielMapper.INSTANCE.fromTypeMaterielDto(typeMaterielDto1)));
+    }
+
 }

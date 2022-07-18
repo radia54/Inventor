@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -32,5 +33,21 @@ public class AppSequenceServiceImpl implements AppSequenceService{
     @Override
     public AppSequence getByName(String name) {
         return appSequenceRepository.findByPrefixe(name).get();
+    }
+
+    @Override
+    public void delete(long id) {
+        appSequenceRepository.deleteById(id);    }
+
+    @Override
+    public AppSequenceDto update(AppSequenceDto appSequenceDto, long id) {
+        AppSequenceDto app= AppSequenceMapper.INSTANCE.fromAppSequence(appSequenceRepository.findById(id).get());
+        if (Objects.nonNull(appSequenceDto.getNext())){
+            app.setNext(appSequenceDto.getNext());
+        }
+        if(Objects.nonNull(appSequenceDto.getPrefixe())){
+            app.setPrefixe(appSequenceDto.getPrefixe());
+        }
+        return AppSequenceMapper.INSTANCE.fromAppSequence(appSequenceRepository.save(AppSequenceMapper.INSTANCE.fromAppSequenceDto(app)));
     }
 }

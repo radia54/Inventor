@@ -39,5 +39,15 @@ public class EmployeController {
     public ResponseEntity<Employe> getByName(@PathVariable("employeName") String name) {
         return new ResponseEntity<>(employeService.getByName(name), HttpStatus.FOUND);
     }
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        employeService.delete(id);
+        return "deleted";
+
+    }
+    @PutMapping("/employe/{id}")
+    public ResponseEntity<EmployeDto> update(@PathVariable("id") long id, @RequestBody EmployeDto employeDto){
+        return new ResponseEntity<>(employeService.update(employeDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 
 }

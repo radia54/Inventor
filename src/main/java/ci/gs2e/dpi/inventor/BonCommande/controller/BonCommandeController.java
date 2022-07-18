@@ -34,6 +34,17 @@ public class BonCommandeController {
     public ResponseEntity<BonCommande> getById(@PathVariable("bonCommandeId") long id) {
         return new ResponseEntity<>(bonCommandeService.getById(id), HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public  String delete(@PathVariable("id") long id){
+        bonCommandeService.delete(id);
+        return "success";
+    }
+
+    @PutMapping("/boncommande/{id}")
+    public ResponseEntity<BonCommandeDto> update(@RequestBody BonCommandeDto bonCommandeDto, @PathVariable("id") long id){
+        return new ResponseEntity<>(bonCommandeService.update(bonCommandeDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 /*
     @GetMapping("/{bonCommandeName}")
     public ResponseEntity<Emplacement> getByName(@PathVariable("bonCommandeName") String name) {

@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -35,5 +36,29 @@ public class MagasinServiceImpl implements MagasinService {
     @Override
     public Magasin getByName(String name) {
         return magasinRepository.findByLibelle(name).get();
+    }
+
+    @Override
+    public void delete(long id) {
+        magasinRepository.deleteById(id);
+    }
+
+    @Override
+    public MagasinDto update(MagasinDto magasinDto, long id) {
+        MagasinDto magasinDto1= MagasinMapper.INSTANCE.fromMagasin(magasinRepository.findById(id).get());
+        if (Objects.nonNull(magasinDto.getCode())){
+            magasinDto1.setCode(magasinDto.getCode());
+        }
+
+        if (Objects.nonNull(magasinDto.getEntrepot())){
+            magasinDto1.setEntrepot(magasinDto.getEntrepot());
+        }
+        if (Objects.nonNull(magasinDto.getLibelle())){
+            magasinDto1.setLibelle(magasinDto.getLibelle());
+        }
+        if (Objects.nonNull(magasinDto.getLocalisation())){
+            magasinDto1.setLocalisation(magasinDto.getLocalisation());
+        }
+        return MagasinMapper.INSTANCE.fromMagasin(magasinRepository.save(MagasinMapper.INSTANCE.fromMagasinDto(magasinDto1)));
     }
 }

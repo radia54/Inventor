@@ -16,7 +16,7 @@ public interface EmployeSiteMapper {
     EmployeSiteDto fromEmployeSite(EmployeSite employeSite);
 
     @Mapping(source = "localisation_site", target = "localisation_site")
-    EmployeSite fromEmployeDto(EmployeSiteDto employeSiteDto);
+    EmployeSite fromEmployeSiteDto(EmployeSiteDto employeSiteDto);
 
     @Mapping(source = "localisation_site", target = "localisation_site")
     List<EmployeSiteDto> fromEmployeSiteList(List<EmployeSite> employeSiteList);

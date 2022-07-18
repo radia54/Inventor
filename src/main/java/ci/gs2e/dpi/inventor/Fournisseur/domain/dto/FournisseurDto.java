@@ -3,8 +3,10 @@ package ci.gs2e.dpi.inventor.Fournisseur.domain.dto;
 import ci.gs2e.dpi.inventor.TypeFournisseur.domain.TypeFournisseur;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class FournisseurDto {
+public class FournisseurDto implements Serializable {
     private long id;
     private String nom;
     private String prenom;

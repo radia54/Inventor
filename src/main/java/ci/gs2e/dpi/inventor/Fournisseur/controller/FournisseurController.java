@@ -41,4 +41,15 @@ public class FournisseurController {
     public ResponseEntity<Fournisseur> getByName(@PathVariable("fournisseurName") String name) {
         return new ResponseEntity<>(fournisseurService.getByName(name), HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        fournisseurService.delete(id);
+        return "deleted";
+    }
+
+    @PutMapping("/fournisseur/{id}")
+    public ResponseEntity<FournisseurDto> update(@PathVariable("id") long id, @RequestBody FournisseurDto fournisseurDto){
+        return new ResponseEntity<>(fournisseurService.update(fournisseurDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 }

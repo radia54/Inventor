@@ -10,4 +10,7 @@ public interface EtatMaterielService {
     EtatMaterielDto create(EtatMaterielDto etatMaterielDto);
     EtatMateriel getById(long id);
     EtatMateriel getByName(String name);
+
+    void delete(long id);
+    EtatMaterielDto update(EtatMaterielDto etat, long id);
 }

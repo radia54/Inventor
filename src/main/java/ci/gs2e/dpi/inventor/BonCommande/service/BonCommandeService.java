@@ -12,6 +12,6 @@ public interface BonCommandeService {
     BonCommandeDto create(BonCommandeDto bonCommandeDto);
     BonCommande getById(long id);
     //BonCommande getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    BonCommandeDto update(BonCommandeDto bonCommande, long id);
 }

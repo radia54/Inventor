@@ -11,4 +11,6 @@ public interface FournisseurService {
     FournisseurDto create(FournisseurDto fournisseur);
     Fournisseur getById(long id);
     Fournisseur getByName(String name);
+    void delete(long id);
+    FournisseurDto update(FournisseurDto fournisseurDto, long id);
 }

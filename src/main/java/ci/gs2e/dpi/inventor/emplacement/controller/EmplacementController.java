@@ -40,8 +40,10 @@ public class EmplacementController {
         return new ResponseEntity<>(emplacementService.getByName(name), HttpStatus.FOUND);
     }
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") long id){
+    public String delete(@PathVariable("id") long id){
+
         emplacementService.delete(id);
+        return "deleted";
     }
 
     @PutMapping("/emplacement/{id}")

@@ -41,4 +41,15 @@ public class TypeMaterielController {
     public ResponseEntity<TypeMateriel> getByName(@PathVariable("typematerielName") String name) {
         return new ResponseEntity<>(typeMaterielService.getByName(name), HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        typeMaterielService.delete(id);
+        return "deleted";
+    }
+
+    @PutMapping("/typemateriel/{id}")
+    public ResponseEntity<TypeMaterielDto> update(@PathVariable("id") long id, @RequestBody TypeMaterielDto typeMaterielDto){
+        return new ResponseEntity<>(typeMaterielService.update(typeMaterielDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 }

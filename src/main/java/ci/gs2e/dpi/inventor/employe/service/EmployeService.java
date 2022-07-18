@@ -12,6 +12,6 @@ public interface EmployeService {
     EmployeDto create(EmployeDto employe);
     Employe getById(long id);
     Employe getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    EmployeDto update(EmployeDto employeDto, long id);
 }

@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class MaterielEmploye implements Serializable {
+public class MaterielEmployeDto implements Serializable {
     private long id;
     private Date DateDebutAffectation;
     private Date DateFinAffectation;

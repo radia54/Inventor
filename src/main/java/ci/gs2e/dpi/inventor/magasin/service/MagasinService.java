@@ -11,7 +11,7 @@ public interface MagasinService {
     MagasinDto create(MagasinDto magasin);
     Magasin getById(long id);
     Magasin getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    MagasinDto update(MagasinDto magasinDto, long id);
 
 }

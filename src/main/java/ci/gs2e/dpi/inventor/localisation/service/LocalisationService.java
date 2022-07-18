@@ -13,6 +13,6 @@ public interface LocalisationService {
     Localisation getById(long id);
 
    //Localisation getByName(String name);
-    //update
-    //delete
+    LocalisationDto update(LocalisationDto localisationDto, long id);
+    void delete(long id);
 }

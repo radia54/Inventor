@@ -12,6 +12,6 @@ public interface TypeMaterielService {
     TypeMaterielDto create(TypeMaterielDto typeMaterielDto);
     TypeMateriel getById(long id);
     TypeMateriel getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    TypeMaterielDto update(TypeMaterielDto typeMaterielDto, long id);
 }

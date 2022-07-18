@@ -34,6 +34,18 @@ public class EmployeSiteController {
     public ResponseEntity<EmployeSite> getById(@PathVariable("employeSiteId") long id) {
         return new ResponseEntity<>(employeSiteService.getById(id), HttpStatus.FOUND);
     }
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        employeSiteService.delete(id);
+        return "deleted";
+    }
+
+    @PutMapping("/employesite/{id}")
+    public ResponseEntity<EmployeSiteDto> update(@PathVariable("id") long id, @RequestBody EmployeSiteDto employeSiteDto){
+        return new ResponseEntity<>(employeSiteService.update(employeSiteDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
+
+
 /*
     @GetMapping("/{employeSiteName}")
     public ResponseEntity<EmployeSite> getByName(@PathVariable("employeSiteName") String name) {

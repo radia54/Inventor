@@ -43,27 +43,27 @@ public class EmplacementServiceImpl implements EmplacementService {
 
     @Override
     public EmplacementDto update(EmplacementDto emplacementDto, long id) {
-        Emplacement empl= emplacementRepository.findById(id).get();
-        if(Objects.nonNull(emplacementDto.getCode()) && ! "".equalsIgnoreCase(emplacementDto.getCode())){
+        EmplacementDto empl= EmplacementMapper.INSTANCE.fromEmplacement(emplacementRepository.findById(id).get());
+        if(Objects.nonNull(emplacementDto.getCode())){
             empl.setCode(emplacementDto.getCode());
         }
-        if (Objects.nonNull(emplacementDto.getLibelle()) && !"".equalsIgnoreCase(emplacementDto.getLibelle())){
+        if (Objects.nonNull(emplacementDto.getLibelle())){
             empl.setCode(emplacementDto.getCode());
 
         }
-        if (Objects.nonNull(emplacementDto.getLibelle()) && !"".equalsIgnoreCase(emplacementDto.getLibelle()))
+        if (Objects.nonNull(emplacementDto.getLibelle()))
          {
             empl.setLibelle(emplacementDto.getLibelle());
         }
-/*
-        if ( Objects.nonNull(emplacementDto.getMagasin()) && !"".equalsIgnoreCase(emplacementDto.getMagasin())){
+
+        if ( Objects.nonNull(emplacementDto.getMagasin())){
             empl.setMagasin(emplacementDto.getMagasin());
 
 
         }
 
- */
 
-        return EmplacementMapper.INSTANCE.fromEmplacement(emplacementRepository.save(EmplacementMapper.INSTANCE.fromEmplacementDto(emplacementDto)));
+
+        return EmplacementMapper.INSTANCE.fromEmplacement(emplacementRepository.save(EmplacementMapper.INSTANCE.fromEmplacementDto(empl)));
     }
 }

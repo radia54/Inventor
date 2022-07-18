@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -23,7 +24,7 @@ public class TypeFournisseurServiceImpl implements TypeFournisseurService{
 
     @Override
     public TypeFournisseurDto create(TypeFournisseurDto typeFournisseurDto) {
-        return TypeFournisseurMapper.INSTANCE.fromTypeFournisseur(typeFournisseurRepository.save(TypeFournisseurMapper.INSTANCE.INSTANCE.fromTypeFournisseurDto(typeFournisseurDto))) ;
+        return TypeFournisseurMapper.INSTANCE.fromTypeFournisseur(typeFournisseurRepository.save(TypeFournisseurMapper.INSTANCE.fromTypeFournisseurDto(typeFournisseurDto))) ;
     }
 
     @Override
@@ -34,5 +35,20 @@ public class TypeFournisseurServiceImpl implements TypeFournisseurService{
     @Override
     public TypeFournisseur getByName(String name) {
         return typeFournisseurRepository.findByLibelle(name).get();
+    }
+
+    @Override
+    public void delete(long id) {
+        typeFournisseurRepository.deleteById(id);
+    }
+
+    @Override
+    public TypeFournisseurDto update(TypeFournisseurDto typeFournisseur, long id) {
+        TypeFournisseurDto type= TypeFournisseurMapper.INSTANCE.fromTypeFournisseur(typeFournisseurRepository.findById(id).get());
+        if (Objects.nonNull(typeFournisseur.getLibelle())){
+            type.setLibelle(typeFournisseur.getLibelle());
+        }
+
+        return TypeFournisseurMapper.INSTANCE.fromTypeFournisseur(typeFournisseurRepository.save(TypeFournisseurMapper.INSTANCE.fromTypeFournisseurDto(type)));
     }
 }

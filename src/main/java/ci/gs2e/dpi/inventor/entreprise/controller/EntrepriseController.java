@@ -32,6 +32,17 @@ public class EntrepriseController {
     public ResponseEntity<Entreprise> getById(@PathVariable("entrepriseId") long id) {
         return new ResponseEntity<>(entrepriseService.getById(id), HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        entrepriseService.delete(id);
+        return "deleted";
+    }
+
+    @PutMapping("/entreprise/{id}")
+    public ResponseEntity<EntrepriseDto> update(@PathVariable("id") long id, @RequestBody EntrepriseDto entrepriseDto){
+        return new ResponseEntity<>(entrepriseService.update(entrepriseDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 /*
     @GetMapping("/{entrepriseName}")
     public ResponseEntity<Entreprise> getByName(@PathVariable("entrepriseName") String name) {

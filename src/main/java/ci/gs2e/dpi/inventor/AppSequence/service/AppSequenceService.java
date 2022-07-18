@@ -12,6 +12,6 @@ public interface AppSequenceService {
     AppSequenceDto create(AppSequenceDto appSequenceDto);
     AppSequence getById(long id);
     AppSequence getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    AppSequenceDto update(AppSequenceDto appSequenceDto, long id);
 }

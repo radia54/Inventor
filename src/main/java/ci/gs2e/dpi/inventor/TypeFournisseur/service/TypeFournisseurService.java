@@ -12,7 +12,7 @@ public interface TypeFournisseurService {
     TypeFournisseurDto create(TypeFournisseurDto typeFournisseurDto);
     TypeFournisseur getById(long id);
     TypeFournisseur getByName(String name);
-    //delete
-    //update
+    void delete(long id);
+    TypeFournisseurDto update(TypeFournisseurDto typeFournisseurDto, long id);
 
 }

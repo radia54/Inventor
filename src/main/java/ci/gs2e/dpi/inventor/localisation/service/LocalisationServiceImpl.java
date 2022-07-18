@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -27,6 +28,23 @@ public class LocalisationServiceImpl implements LocalisationService{
     @Override
     public Localisation getById(long id) {
         return  localisationRepository.findById(id).get();
+    }
+
+    @Override
+    public LocalisationDto update(LocalisationDto localisationDto, long id) {
+        LocalisationDto localisationDto1=LocalisationMapper.INSTANCE.fromLocalisation(localisationRepository.findById(id).get());
+        if (Objects.nonNull(localisationDto.getLocalisation_mag())){
+            localisationDto1.setLocalisation_mag(localisationDto.getLocalisation_mag());
+        }
+
+        return LocalisationMapper.INSTANCE.fromLocalisation(localisationRepository.save(LocalisationMapper.INSTANCE.fromLocalisationDto(localisationDto1)));
+
+    }
+
+    @Override
+    public void delete(long id) {
+        localisationRepository.deleteById(id);
+
     }
 /*
     @Override

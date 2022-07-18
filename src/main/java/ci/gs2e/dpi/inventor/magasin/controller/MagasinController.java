@@ -40,4 +40,15 @@ public class MagasinController {
     public ResponseEntity<Magasin> getByName(@PathVariable("magasinName") String name) {
         return new ResponseEntity<>(magasinService.getByName(name), HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        magasinService.delete(id);
+        return "deleted";
+    }
+
+    @PutMapping("/magasin/{id}")
+    public ResponseEntity<MagasinDto> update(@PathVariable("id") long id, @RequestBody MagasinDto magasinDto){
+        return new ResponseEntity<>(magasinService.update(magasinDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 }

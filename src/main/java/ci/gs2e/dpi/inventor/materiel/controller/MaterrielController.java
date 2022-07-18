@@ -42,4 +42,14 @@ public class MaterrielController {
     public ResponseEntity<Materiel> getByName(@PathVariable("materielName") String name) {
         return new ResponseEntity<>(materielService.getByName(name), HttpStatus.FOUND);
     }
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id){
+        materielService.delete(id);
+        return "deleted";
+    }
+
+    @PutMapping("/materiel/{id}")
+    public ResponseEntity<MaterielDto> update(@PathVariable("id") long id, @RequestBody MaterielDto materielDto){
+        return new ResponseEntity<>(materielService.update(materielDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 }

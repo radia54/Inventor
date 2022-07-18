@@ -35,4 +35,14 @@ public class BonlivraisonController {
     public ResponseEntity<BonLivraison> getById(@PathVariable("bonLivraisonId") long id) {
         return new ResponseEntity<>(bonLivraisonService.getById(id), HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public  String delete(@PathVariable("id") long id){
+        bonLivraisonService.delete(id);
+        return "delete";
+    }
+    @PutMapping("/bonlivraison/{id}")
+    public ResponseEntity<BonLivraisonDto> update(@PathVariable("id") long id, @RequestBody BonLivraisonDto bonLivraisonDto){
+        return new ResponseEntity<>(bonLivraisonService.update(bonLivraisonDto, id), HttpStatus.UPGRADE_REQUIRED);
+    }
 }
