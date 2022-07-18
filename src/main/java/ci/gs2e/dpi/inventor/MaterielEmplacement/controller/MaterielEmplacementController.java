@@ -3,8 +3,8 @@ package ci.gs2e.dpi.inventor.MaterielEmplacement.controller;
 import ci.gs2e.dpi.inventor.MaterielEmplacement.domain.MaterielEmplacement;
 import ci.gs2e.dpi.inventor.MaterielEmplacement.domain.dto.MaterielEmplacementDto;
 import ci.gs2e.dpi.inventor.MaterielEmplacement.service.MaterielEmplacementService;
-import ci.gs2e.dpi.inventor.TypeFournisseur.domain.TypeFournisseur;
-import ci.gs2e.dpi.inventor.TypeFournisseur.domain.dto.TypeFournisseurDto;
+
+
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
